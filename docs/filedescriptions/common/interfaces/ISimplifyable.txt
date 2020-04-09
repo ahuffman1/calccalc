@@ -1,0 +1,9 @@
+::Contents::
+
+calccalc::ISimplifyable // interface for types that can be simplified.
+
+
+::Diagram::
+
+class ISimplifyable
++ virtual simplify() : void // Simplifies the object.

@@ -1,0 +1,15 @@
+::Contents::
+
+calccalc::Solution // The simple solution to a math problem.
+
+
+::Diagram::
+
+class Solution
++ Solution(double, bool) // constructor.
++ Solution() // default constructor.
+
++ exists() : bool // True if the solution exists.
++ getValue() : double // Returns the value of the solution (whether it exists or not.)
++ setExists(bool) : void // Sets whether or not the solution exists.
++ setValue(double) : void // Sets the value of the solution.

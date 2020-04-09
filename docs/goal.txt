@@ -1,0 +1,3 @@
+The goal of CalcCalc is to create a calculator that can
+do simple math exactly and provide estimations for higher
+tier mathematics.

@@ -1,0 +1,9 @@
+::Contents::
+
+calccalc::IEvaluable // interface for types that can be evaluated to a double.
+
+
+::Diagram::
+
+class IEvaluable
++ virtual evaluate() : Solution // Evaluates the object into a Solution.
