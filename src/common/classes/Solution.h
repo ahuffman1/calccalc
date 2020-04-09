@@ -15,6 +15,8 @@ namespace calccalc
         void setExists(const bool& e) {_exists = e;}
         void setSolution(const double& s) {_solution = s;}
 
+        static Solution undef() {return Solution(0.0, false);} // Builds an instance of an undefined Solution.
+
 
     private:
         double _solution = 0.0;

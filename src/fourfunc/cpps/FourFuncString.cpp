@@ -88,6 +88,8 @@ namespace calccalc
             }
         }
 
+        _edit_string = _str;
+
     }
 
     // TODO: For later, come up with a more efficient way to check for +- and --'s.
@@ -95,20 +97,19 @@ namespace calccalc
     {
         if(!_sltn_found)
         {
-            string copy = _str;
 
             // Multiplication and division check
-            for(size_t i = 0; i < copy.length(); i++)
+            for(size_t i = 0; i < _edit_string.length(); i++)
             {
-                if(copy[i] == '*')
+                if(_edit_string[i] == '*')
                 {
-                    mathReplace(copy, i, multiply);
+                    mathReplace(_edit_string, i, multiply);
                 }
-                else if(copy[i] == '/')
+                else if(_edit_string[i] == '/')
                 {
                     try
                     {
-                        mathReplace(copy, i, divide);
+                        mathReplace(_edit_string, i, divide);
                     }
                     catch(const runtime_error&)
                     {
@@ -122,40 +123,44 @@ namespace calccalc
 
             }
 
+
             // Remove "+-'s" and "--'s"
-            size_t plusminusi = copy.find("+=");
+            size_t plusminusi = _edit_string.find("+=");
 
             while (plusminusi != string::npos)
             {
-                copy.replace(plusminusi, 2, "-");
-                plusminusi = copy.find("+=");
+                _edit_string.replace(plusminusi, 2, "-");
+                plusminusi = _edit_string.find("+=");
 
             } 
 
-            size_t minusminusi = copy.find("--");
+            size_t minusminusi = _edit_string.find("--");
 
             while (minusminusi != string::npos)
             {
-                copy.replace(minusminusi, 2, "+");
-                minusminusi = copy.find("--");
+                _edit_string.replace(minusminusi, 2, "+");
+                minusminusi = _edit_string.find("--");
 
             }
+
             
 
             // Plus and minus check
-            for(size_t i = 0; i < copy.length(); i++)
+            for(size_t i = 0; i < _edit_string.length(); i++)
             {
-                if(i != 0 && copy[i] == '+')
+                if(i != 0 && _edit_string[i] == '+')
                 {
-                    mathReplace(copy, i, add);
+                    mathReplace(_edit_string, i, add);
                 }
-                else if(i != 0 && copy[i] == '-')
+                else if(i != 0 && _edit_string[i] == '-')
                 {
-                    mathReplace(copy, i, subtract);
+                    mathReplace(_edit_string, i, subtract);
                 }
             }
 
-            _sltn = Solution(stod(copy), true);
+
+            _sltn = Solution(stod(_edit_string), true);
+
 
 
         }

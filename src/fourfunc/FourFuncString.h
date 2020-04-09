@@ -24,6 +24,9 @@ namespace calccalc
         Solution _sltn;
         bool _sltn_found = false;
 
+    protected:
+        std::string _edit_string; // The string that is edited in the process of solving.
+
     };
 }
 
