@@ -4,7 +4,6 @@
 
 #include <stdexcept>
 #include <algorithm>
-#include <sstream>
 
 #include <iostream>
 
@@ -70,11 +69,9 @@ void mathReplace(string& str, const int& pos, const operation& op)
 
     }
 
-    stringstream ss;
-    ss << result;
 
     // Replace them in the string.
-    str.replace(leftNumBeginPos, rightNumEndPos - leftNumBeginPos + 2, ss.str());
+    str.replace(leftNumBeginPos, rightNumEndPos - leftNumBeginPos + 2, to_string(result));
 
 }
 
